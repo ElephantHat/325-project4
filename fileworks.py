@@ -18,3 +18,6 @@ def write_output(A):
     for i in range(len(A)):
         f.write(json.dumps(A[i])+"\n")
     f.close()
+	
+def search(city, array):
+	return [x for x in array if (x['id1'] == city or x['id2'] == city)]

@@ -1,0 +1,36 @@
+Pseudocode: 
+
+Basically, this is a greedy algorithm, which picks the closest city to the current city that hasn't been visited yet.
+
+Ingest list of cities
+Calculate distance between each pair of cities (each pair calculated once)
+	for i from 0 to number of cities
+		for j from i+1 to number of cities
+			distance(i,j) = distance formula
+Pick the city that's closest to its neighbor, and make it the starting city
+Pick the next city that's closest to this neighbor, that hasn't been visited, and so on
+Keep a running total of the distance between these cities
+Produce the output file
+
+
+
+Results on the examples:
+	Example 1: Given solution is 111133, Our calculated solution is 150393 in .071 seconds
+	Example 2: Given solution is 2808, Our calculated solution is 3197 in 2.63 seconds
+	Example 3: Couldn't run in a reasonable amount of time
+	
+
+	
+Room for improvement:
+	Because this is a greedy algorithm, it often gets stuck and must choose a long distance between
+	two cities when it has to go across the map.  A better way to write this would be to pick pairs of
+	cities with the shortest distance between them, until each city has been picked twice, which would 
+	create a Hamiltonian cycle.  
+	
+	
+	
+Other notes:
+	I made two versions of this code.  The first didn't rewrite the distances table, and searched through
+	the entire table each time.  The second scanned through the table and removed the visited cities each
+	iteration.  I found that while the second scans through the distances table twice, it still runs faster
+	as each time the table is smaller.
